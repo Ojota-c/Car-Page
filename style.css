@@ -132,6 +132,11 @@ section {
                     font-weight: bold;
                     font-family: "League Gothic", sans-serif;
                 }
+                & .buy-button:hover {
+                    background-color: #17ccc3;
+                    color: white;
+                    transition: 0.5s;
+                }
             }
         }
 
