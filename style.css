@@ -349,14 +349,14 @@ section {
         justify-content: flex-start;
         background: transparent;
         box-sizing: border-box;
-        padding-top: 40px; /* espaço para não colar no topo */
+        padding-top: 90px; /* Aumenta o espaço no topo para descer a imagem */
         z-index: 1;
     }
     section .list .item .car-img {
         position: static;
         width: 85vw;
         max-width: 320px;
-        margin: 0 auto 10px auto;
+        margin: 0 auto 20px auto; /* Mais espaço abaixo da imagem */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -382,27 +382,7 @@ section {
         padding: 0 10px;
         margin-top: 10px;
     }
-    section .list .item .content h2 {
-        font-size: 2rem;
-        margin: 20px 0 0 0;
-    }
-    section .list .item .content .description {
-        font-size: 1rem;
-        margin: 10px 0;
-        line-height: 1.4;
-        max-height: 6em;
-        overflow-y: auto;
-    }
-    section .list .item .content .buy-button {
-        margin: 15px 0 0 0;
-        font-size: 1.1rem;
-        width: 140px;
-        height: 42px;
-        z-index: 4;
-        position: relative;
-        pointer-events: auto;
-    }
-    /* Arrows e indicators no rodapé, fora do conteúdo */
+    /* Arrows fixas no rodapé, uma em cada lado */
     section .arrows {
         position: fixed;
         width: 100vw;
@@ -410,8 +390,9 @@ section {
         bottom: 80px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 0 20px;
-        z-index: 10;
+        z-index: 100;
         pointer-events: none;
     }
     section .arrows button {
@@ -425,7 +406,7 @@ section {
         justify-content: center;
         border: none;
         cursor: pointer;
-        z-index: 11;
+        z-index: 101;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     section .arrows button:active {
@@ -439,7 +420,7 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 10;
+        z-index: 100;
         pointer-events: none;
     }
     section .indicators ul {
