@@ -11,25 +11,21 @@ let firstPosition = 0
 let lastPosition = items.length - 1
 
 function setSlider() {
-    let itemOld = container.querySelector('.list .item.active')
-    itemOld.classList.remove('active')
-
-    let dotsOld = indicator.querySelector('ul li.active')
-    dotsOld.classList.remove('active')
-    dots[active].classList.add('active')
-
-    indicator.querySelector('.number').innerHTML = '0' + (active + 1)
+    items.forEach(item => item.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    items[active].classList.add('active');
+    dots[active].classList.add('active');
+    indicator.querySelector('.number').innerHTML = '0' + (active + 1);
 }
+
 nextButton.onclick = () => {
     list.style.setProperty('--calculation',1)
     active = active + 1 > lastPosition ? 0 : active + 1
     setSlider()
-    items[active].classList.add('active')
 }
 
 prevButton.onclick = () => {
     list.style.setProperty('--calculation', -1)
     active = active - 1 < firstPosition ? lastPosition : active - 1
     setSlider()
-    items[active].classList.add('active')
 }

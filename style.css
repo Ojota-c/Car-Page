@@ -393,7 +393,8 @@ section {
     }
     section .list .item .content h2 {
         font-size: 1.5em;
-        margin: 0;
+        margin: 40px 0 0 0; /* aumenta o espaço acima do h2 */
+        padding-top: 20px;   /* opcional, para mais espaço */
     }
     section .list .item .content .description {
         max-height: 7em;
