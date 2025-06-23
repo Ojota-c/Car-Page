@@ -349,8 +349,10 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start; /* Começa do topo */
         background: transparent;
+        padding-top: 60px; /* Espaço para não colar no topo */
+        box-sizing: border-box;
     }
     
     section .list .item .car-img {
@@ -380,6 +382,7 @@ section {
         text-align: center;
         z-index: 10;
         padding: 0 10px;
+        margin-top: 10px;
     }
     
     section .list .item .content h2 {
@@ -405,20 +408,21 @@ section {
         pointer-events: auto;
     }
     
-    /* Controles de navegação */
+    /* Arrows e indicators no rodapé, fora do conteúdo */
     section .arrows {
         position: fixed;
-        width: 100%;
-        bottom: 80px;
+        width: 100vw;
         left: 0;
+        bottom: 80px;
         display: flex;
         justify-content: space-between;
-        padding: 0 15px;
-        z-index: 200;
-        pointer-events: none; /* Container não recebe eventos */
+        padding: 0 20px;
+        z-index: 300;
+        pointer-events: none;
     }
     
     section .arrows button {
+        pointer-events: auto;
         width: 55px;
         height: 55px;
         background: rgba(255, 255, 255, 0.9);
@@ -428,8 +432,7 @@ section {
         justify-content: center;
         border: none;
         cursor: pointer;
-        pointer-events: auto; /* Botões recebem eventos */
-        z-index: 201;
+        z-index: 301;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     
@@ -437,16 +440,15 @@ section {
         transform: scale(0.95);
     }
     
-    /* Indicadores */
     section .indicators {
         position: fixed;
-        bottom: 20px;
         left: 0;
-        width: 100%;
+        bottom: 20px;
+        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 200;
+        z-index: 300;
         pointer-events: none;
     }
     
