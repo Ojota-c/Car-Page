@@ -323,11 +323,14 @@ section {
 }
 
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
-        overflow: auto;
+    html, body {
+        height: 100vh;
+        overflow: hidden;
     }
-
+    body {
+        font-size: 13px;
+        overflow: hidden;
+    }
     header {
         width: 100vw;
         left: 0;
@@ -337,67 +340,100 @@ section {
         padding: 10px 0;
         text-align: center;
     }
-
     header img {
-        width: 180px;
+        width: 140px;
     }
-
     header nav ul {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 10px;
         justify-content: center;
     }
-
+    section {
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+    }
     section .list {
         width: 100vw;
-        min-height: 70vh;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        margin: 0;
         padding: 0;
+        position: relative;
     }
-
+    section .list .item {
+        position: absolute;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+    }
     section .list .item .car-img {
-        width: 90vw;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 45%;
+        position: relative;
+        width: 55vw;
+        max-width: 180px;
+        min-width: 120px;
+        left: 0;
+        top: 0;
+        transform: none;
+        z-index: 2;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-
     section .list .item .car-img img {
         width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
+        max-width: 180px;
+        margin: 0;
         display: block;
     }
-
     section .list .item .content {
-        right: 0;
-        width: 100vw;
-        align-items: center;
-        text-align: center;
+        position: relative;
+        right: unset;
+        top: unset;
+        transform: none;
+        width: 45vw;
+        min-width: 120px;
+        max-width: 180px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
         padding: 0 10px;
+        z-index: 3;
+        background: none;
+        justify-content: center;
     }
-
     section .list .item .content h2 {
-        font-size: 2.5em;
+        font-size: 1.5em;
+        margin: 0;
     }
-
     section .list .item .content .description {
-        font-size: 1em;
-        max-width: 95vw;
-        margin: 10px auto;
-        text-align: center;
+        font-size: 0.95em;
+        max-width: 100%;
+        margin: 10px 0;
+        text-align: right;
     }
-
     section .list .item .content .price {
-        font-size: 2em;
+        font-size: 1.2em;
     }
-
     section .list .item .content .buy-button {
         width: 100%;
-        max-width: 180px;
-        font-size: 1em;
-        height: 40px;
+        max-width: 120px;
+        font-size: 0.95em;
+        height: 36px;
+        pointer-events: auto;
+        z-index: 5;
+        position: relative;
     }
-
     section .arrows {
         width: 100vw;
         left: 50%;
@@ -405,11 +441,15 @@ section {
         top: unset;
         transform: translate(-50%, 0);
         position: fixed;
-        z-index: 20;
+        z-index: 100;
         justify-content: space-between;
         pointer-events: auto;
+        display: flex;
     }
-
+    section .arrows button {
+        pointer-events: auto;
+        z-index: 101;
+    }
     section .indicators {
         width: 100vw;
         left: 50%;
@@ -417,31 +457,46 @@ section {
         top: unset;
         transform: translateX(-50%);
         position: fixed;
-        z-index: 20;
+        z-index: 100;
         flex-direction: column;
         align-items: center;
         gap: 10px;
         pointer-events: auto;
+        display: flex;
     }
-
     section .indicators .number {
-        font-size: 2rem;
+        font-size: 1.2em;
     }
 }
 
 /* Ajuste para telas muito pequenas */
 @media (max-width: 480px) {
+    section .list .item .car-img {
+        width: 60vw;
+        max-width: 110px;
+        min-width: 80px;
+    }
+    section .list .item .car-img img {
+        max-width: 110px;
+    }
+    section .list .item .content {
+        width: 40vw;
+        min-width: 80px;
+        max-width: 110px;
+        padding: 0 5px;
+    }
     section .list .item .content h2 {
-        font-size: 1.5em;
+        font-size: 1em;
     }
     section .list .item .content .description {
-        font-size: 0.95em;
+        font-size: 0.8em;
     }
     section .list .item .content .price {
-        font-size: 1.2em;
+        font-size: 0.95em;
     }
     section .list .item .content .buy-button {
-        font-size: 0.95em;
-        height: 36px;
+        font-size: 0.8em;
+        height: 28px;
+        max-width: 80px;
     }
 }
