@@ -322,145 +322,175 @@ section {
     }
 }
 
+/* MOBILE VERSION */
 @media (max-width: 768px) {
-    html, body {
-        height: 100vh;
-        /* Removido overflow: hidden para evitar cortes */
+    body {
+        overflow-x: hidden;
         touch-action: pan-y;
     }
+
+    header {
+        top: 0;
+        width: 100%;
+        padding: 15px 5%;
+        grid-template-columns: 1fr;
+        gap: 0;
+        transform: none;
+        left: 0;
+        
+        & img {
+            width: 180px;
+            margin: 0 auto;
+        }
+
+        & nav {
+            display: none; /* Esconde o menu em mobile */
+        }
+    }
+
     section {
         height: 100vh;
-        min-height: -webkit-fill-available;
-        /* Removido overflow: hidden */
-        position: relative;
+        overflow: hidden;
+
+        & .list {
+            width: 100vw;
+            height: 100%;
+
+            & .item {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                & .car-img {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    transform: none;
+                    width: 80%;
+                    max-width: 300px;
+                    margin-top: 30px;
+
+                    & img {
+                        transform: rotate(-15deg) !important;
+                        width: 100%;
+                    }
+
+                    &::before {
+                        left: 0;
+                        width: 80%;
+                        margin: 0 auto;
+                    }
+                }
+
+                & .content {
+                    position: relative;
+                    right: auto;
+                    top: auto;
+                    transform: none;
+                    width: 90%;
+                    height: auto;
+                    align-items: center;
+                    text-align: center;
+                    padding: 20px 0;
+                    margin-top: -30px;
+
+                    & .car-information {
+                        margin-top: 10px;
+                        font-size: 0.9em;
+                    }
+
+                    & h2 {
+                        font-size: 3em;
+                        margin: 5px 0;
+                    }
+
+                    & .description {
+                        text-align: center;
+                        max-width: 90%;
+                        font-size: 0.9em;
+                        margin: 10px auto;
+                    }
+
+                    & .price {
+                        font-size: 2em;
+                        margin: 10px 0;
+                    }
+
+                    & .buy-button {
+                        margin: 15px 0 30px;
+                        font-size: 1.1em;
+                        height: 40px;
+                        width: 130px;
+                    }
+                }
+            }
+
+            &::before {
+                top: 60%;
+                width: 80%;
+                left: 10%;
+            }
+        }
+
+        & .arrows {
+            width: 100%;
+            top: auto;
+            bottom: 100px;
+            transform: translateX(-50%);
+            padding: 0 20px;
+
+            & button {
+                width: 60px;
+                height: 60px;
+                background: rgba(255, 255, 255, 0.8);
+
+                & img {
+                    width: 25px;
+                }
+            }
+        }
+
+        & .indicators {
+            top: auto;
+            bottom: 30px;
+            height: auto;
+            width: 100%;
+
+            & .number {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            & ul li {
+                width: 30px;
+                height: 4px;
+            }
+        }
     }
-    section .list {
-        width: 100vw;
-        height: 100vh;
-        position: relative;
-    }
+
+    /* Ajustes de transição para mobile */
     section .list .item {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        background: transparent;
-        box-sizing: border-box;
-        padding-top: 60px; /* Menos espaço no topo para descer a imagem */
-        z-index: 1;
-    }
-    section .list .item .car-img {
-        position: static;
-        width: 85vw;
-        max-width: 320px;
-        margin: 0 auto 24px auto; /* Mais espaço abaixo da imagem */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        pointer-events: auto;
-        z-index: 2;
-    }
-    section .list .item .car-img img {
-        width: 100%;
-        max-width: 320px;
-        display: block;
-        filter: none;
-        transform: rotate(-20deg);
-    }
-    section .list .item .content {
-        position: static;
-        width: 90vw;
-        max-width: 340px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        z-index: 3;
-        padding: 0 10px;
-        margin-top: 10px;
-    }
-    section .list .item .content h2 {
-        font-size: 2rem;
-        margin: 20px 0 0 0;
-    }
-    section .list .item .content .description {
-        font-size: 1rem;
-        margin: 10px 0;
-        line-height: 1.4;
-        max-height: 6em;
-        overflow-y: auto;
-    }
-    section .list .item .content .buy-button {
-        margin: 15px 0 0 0;
-        font-size: 1.1rem;
-        width: 140px;
-        height: 42px;
-        z-index: 4;
-        position: relative;
-        pointer-events: auto;
-    }
-    /* Arrows fixas no rodapé, uma em cada lado */
-    section .arrows {
-        position: fixed;
-        width: 100vw;
-        left: 0;
-        bottom: 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        z-index: 100;
-        pointer-events: none;
-    }
-    section .arrows button {
-        pointer-events: auto;
-        width: 55px;
-        height: 55px;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        cursor: pointer;
-        z-index: 101;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    section .arrows button:active {
-        transform: scale(0.95);
-    }
-    section .indicators {
-        position: fixed;
-        left: 0;
-        bottom: 90px;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 100;
-        pointer-events: none;
-    }
-    section .indicators ul {
-        display: flex;
-        gap: 10px;
-        pointer-events: auto;
-    }
-    section .indicators ul li {
-        width: 35px;
-        height: 4px;
-        background-color: rgba(190, 255, 27, 0.6);
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-    section .indicators ul .active {
-        background-color: white;
-        transform: scaleY(1.5);
-    }
-    /* Garantir que elementos interativos estão acima */
-    section .list .item .content * {
-        pointer-events: auto;
+        & .content {
+            & .car-information,
+            & h2,
+            & .description,
+            & .price,
+            & .buy-button {
+                transform: translateY(30px) !important;
+                transition-delay: 0s !important;
+            }
+        }
+
+        &.active {
+            & .content {
+                & .car-information,
+                & h2,
+                & .description,
+                & .price,
+                & .buy-button {
+                    transform: translateY(0) !important;
+                }
+            }
+        }
     }
 }

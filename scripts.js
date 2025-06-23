@@ -29,3 +29,30 @@ prevButton.onclick = () => {
     active = active - 1 < firstPosition ? lastPosition : active - 1
     setSlider()
 }
+
+/* JavaScript para mobile (mesmo código, mas com touch events) */
+const nextButton = document.getElementById('next');
+const prevButton = document.getElementById('prev');
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Touch events para swipe
+container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, {passive: true});
+
+container.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, {passive: true});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        // Swipe left - next
+        nextButton.click();
+    }
+    if (touchEndX > touchStartX + 50) {
+        // Swipe right - prev
+        prevButton.click();
+    }
+}
