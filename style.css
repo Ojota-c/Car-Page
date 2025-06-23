@@ -328,20 +328,17 @@ section {
         overflow: hidden;
         touch-action: pan-y;
     }
-    
     section {
         height: 100vh;
-        min-height: -webkit-fill-available; /* Corrige altura em mobile browsers */
+        min-height: -webkit-fill-available;
         overflow: hidden;
         position: relative;
     }
-    
     section .list {
         width: 100vw;
-        height: 100%;
+        height: 100vh;
         position: relative;
     }
-    
     section .list .item {
         position: absolute;
         width: 100vw;
@@ -349,47 +346,46 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; /* Centraliza verticalmente */
+        justify-content: flex-start;
         background: transparent;
-        padding-top: 0; /* Remove espaço extra do topo */
         box-sizing: border-box;
+        padding-top: 40px; /* espaço para não colar no topo */
+        z-index: 1;
     }
-    
     section .list .item .car-img {
         position: static;
-        width: 80vw;
-        max-width: 260px;
+        width: 85vw;
+        max-width: 320px;
         margin: 0 auto 10px auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        pointer-events: none;
+        pointer-events: auto;
+        z-index: 2;
     }
-    
     section .list .item .car-img img {
         width: 100%;
-        max-width: 260px;
+        max-width: 320px;
         display: block;
+        filter: none;
+        transform: rotate(-20deg);
     }
-    
     section .list .item .content {
         position: static;
         width: 90vw;
-        max-width: 320px;
+        max-width: 340px;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        z-index: 10;
+        z-index: 3;
         padding: 0 10px;
         margin-top: 10px;
     }
-    
     section .list .item .content h2 {
         font-size: 2rem;
         margin: 20px 0 0 0;
     }
-    
     section .list .item .content .description {
         font-size: 1rem;
         margin: 10px 0;
@@ -397,17 +393,15 @@ section {
         max-height: 6em;
         overflow-y: auto;
     }
-    
     section .list .item .content .buy-button {
         margin: 15px 0 0 0;
         font-size: 1.1rem;
         width: 140px;
         height: 42px;
-        z-index: 100;
+        z-index: 4;
         position: relative;
         pointer-events: auto;
     }
-    
     /* Arrows e indicators no rodapé, fora do conteúdo */
     section .arrows {
         position: fixed;
@@ -417,10 +411,9 @@ section {
         display: flex;
         justify-content: space-between;
         padding: 0 20px;
-        z-index: 300;
+        z-index: 10;
         pointer-events: none;
     }
-    
     section .arrows button {
         pointer-events: auto;
         width: 55px;
@@ -432,14 +425,12 @@ section {
         justify-content: center;
         border: none;
         cursor: pointer;
-        z-index: 301;
+        z-index: 11;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-    
     section .arrows button:active {
         transform: scale(0.95);
     }
-    
     section .indicators {
         position: fixed;
         left: 0;
@@ -448,16 +439,14 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 300;
+        z-index: 10;
         pointer-events: none;
     }
-    
     section .indicators ul {
         display: flex;
         gap: 10px;
         pointer-events: auto;
     }
-    
     section .indicators ul li {
         width: 35px;
         height: 4px;
@@ -465,19 +454,12 @@ section {
         border-radius: 2px;
         transition: all 0.3s ease;
     }
-    
     section .indicators ul .active {
         background-color: white;
         transform: scaleY(1.5);
     }
-    
     /* Garantir que elementos interativos estão acima */
     section .list .item .content * {
         pointer-events: auto;
-    }
-    
-    /* Correção para evitar sobreposição */
-    section .list .item .car-img {
-        pointer-events: none;
     }
 }
