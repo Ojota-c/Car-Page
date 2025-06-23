@@ -474,31 +474,52 @@ section {
         justify-content: center;
         padding: 0 10px;
     }
+    section .list .item .car-img {
+        width: 80vw;
+        max-width: 320px;
+        min-width: 160px;
+        margin: 0 auto 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    section .list .item .car-img img {
+        width: 100%;
+        max-width: 320px;
+        min-width: 160px;
+        display: block;
+    }
     section .list .item .content {
         align-items: center;
         text-align: center;
         width: 90vw;
-        max-width: 320px;
-        min-width: 0;
+        max-width: 340px;
+        min-width: 160px;
         padding: 0 10px;
     }
+    section .list .item .content h2 {
+        font-size: 2em;
+        margin: 0;
+    }
     section .list .item .content .description {
-        max-height: 5.5em;
+        max-height: 7em;
         overflow-y: auto;
-        font-size: 0.95em;
+        font-size: 1em;
         margin: 10px 0;
         text-align: center;
-        padding-right: 2px;
         line-height: 1.3;
     }
-    section .list .item .content h2,
     section .list .item .content .price {
+        font-size: 1.5em;
         text-align: center;
         width: 100%;
     }
     section .list .item .content .buy-button {
         margin: 10px auto 0 auto;
         display: block;
+        font-size: 1.1em;
+        width: 140px;
+        height: 40px;
     }
 }
 
