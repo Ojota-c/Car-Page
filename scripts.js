@@ -1,58 +1,63 @@
-let prevButton = document.getElementById('prev')
-let nextButton = document.getElementById('next')
-let container = document.querySelector('.container')
-let items = container.querySelectorAll('.list .item')
-let indicator = document.querySelector('.indicators')
-let dots = indicator.querySelectorAll('ul li')
-let list = container.querySelector('.list')
+// Seleciona os elementos
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+const items = document.querySelectorAll('.list .item');
+const dots = document.querySelectorAll('.indicators ul li');
+const number = document.querySelector('.indicators .number');
+const list = document.querySelector('.list');
 
-let active = 0
-let firstPosition = 0
-let lastPosition = items.length - 1
+let active = 0;
+const lastPosition = items.length - 1;
 
+// Função para atualizar o slider
 function setSlider() {
+    // Remove todas as classes active
     items.forEach(item => item.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Adiciona active no item atual
     items[active].classList.add('active');
     dots[active].classList.add('active');
-    indicator.querySelector('.number').innerHTML = '0' + (active + 1);
+    number.textContent = `0${active + 1}`;
 }
 
-nextButton.onclick = () => {
-    list.style.setProperty('--calculation',1)
-    active = active + 1 > lastPosition ? 0 : active + 1
-    setSlider()
-}
+// Eventos de clique
+nextButton.addEventListener('click', () => {
+    list.style.setProperty('--calculation', 1);
+    active = active === lastPosition ? 0 : active + 1;
+    setSlider();
+});
 
-prevButton.onclick = () => {
-    list.style.setProperty('--calculation', -1)
-    active = active - 1 < firstPosition ? lastPosition : active - 1
-    setSlider()
-}
+prevButton.addEventListener('click', () => {
+    list.style.setProperty('--calculation', -1);
+    active = active === 0 ? lastPosition : active - 1;
+    setSlider();
+});
 
-/* JavaScript para mobile (mesmo código, mas com touch events) */
-const nextButton = document.getElementById('next');
-const prevButton = document.getElementById('prev');
+// Touch events para mobile
 let touchStartX = 0;
 let touchEndX = 0;
 
-// Touch events para swipe
-container.addEventListener('touchstart', (e) => {
+list.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
 }, {passive: true});
 
-container.addEventListener('touchend', (e) => {
+list.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
 }, {passive: true});
 
 function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        // Swipe left - next
+    const swipeThreshold = 50;
+    
+    if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe left - próximo
         nextButton.click();
-    }
-    if (touchEndX > touchStartX + 50) {
-        // Swipe right - prev
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe right - anterior
         prevButton.click();
     }
 }
+
+// Inicializa o slider
+setSlider();

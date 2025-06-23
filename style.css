@@ -330,167 +330,106 @@ section {
     }
 
     header {
+        position: fixed;
         top: 0;
         width: 100%;
         padding: 15px 5%;
-        grid-template-columns: 1fr;
-        gap: 0;
-        transform: none;
-        left: 0;
-        
-        & img {
-            width: 180px;
-            margin: 0 auto;
-        }
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+    }
 
-        & nav {
-            display: none; /* Esconde o menu em mobile */
-        }
+    header img {
+        width: 150px;
+        height: auto;
+    }
+
+    header nav {
+        display: none;
     }
 
     section {
+        padding-top: 80px;
         height: 100vh;
-        overflow: hidden;
-
-        & .list {
-            width: 100vw;
-            height: 100%;
-
-            & .item {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-
-                & .car-img {
-                    position: relative;
-                    top: auto;
-                    left: auto;
-                    transform: none;
-                    width: 80%;
-                    max-width: 300px;
-                    margin-top: 30px;
-
-                    & img {
-                        transform: rotate(-15deg) !important;
-                        width: 100%;
-                    }
-
-                    &::before {
-                        left: 0;
-                        width: 80%;
-                        margin: 0 auto;
-                    }
-                }
-
-                & .content {
-                    position: relative;
-                    right: auto;
-                    top: auto;
-                    transform: none;
-                    width: 90%;
-                    height: auto;
-                    align-items: center;
-                    text-align: center;
-                    padding: 20px 0;
-                    margin-top: -30px;
-
-                    & .car-information {
-                        margin-top: 10px;
-                        font-size: 0.9em;
-                    }
-
-                    & h2 {
-                        font-size: 3em;
-                        margin: 5px 0;
-                    }
-
-                    & .description {
-                        text-align: center;
-                        max-width: 90%;
-                        font-size: 0.9em;
-                        margin: 10px auto;
-                    }
-
-                    & .price {
-                        font-size: 2em;
-                        margin: 10px 0;
-                    }
-
-                    & .buy-button {
-                        margin: 15px 0 30px;
-                        font-size: 1.1em;
-                        height: 40px;
-                        width: 130px;
-                    }
-                }
-            }
-
-            &::before {
-                top: 60%;
-                width: 80%;
-                left: 10%;
-            }
-        }
-
-        & .arrows {
-            width: 100%;
-            top: auto;
-            bottom: 100px;
-            transform: translateX(-50%);
-            padding: 0 20px;
-
-            & button {
-                width: 60px;
-                height: 60px;
-                background: rgba(255, 255, 255, 0.8);
-
-                & img {
-                    width: 25px;
-                }
-            }
-        }
-
-        & .indicators {
-            top: auto;
-            bottom: 30px;
-            height: auto;
-            width: 100%;
-
-            & .number {
-                font-size: 2em;
-                margin-bottom: 10px;
-            }
-
-            & ul li {
-                width: 30px;
-                height: 4px;
-            }
-        }
     }
 
-    /* Ajustes de transição para mobile */
-    section .list .item {
-        & .content {
-            & .car-information,
-            & h2,
-            & .description,
-            & .price,
-            & .buy-button {
-                transform: translateY(30px) !important;
-                transition-delay: 0s !important;
-            }
-        }
+    section .list {
+        width: 100vw;
+        height: calc(100vh - 80px);
+    }
 
-        &.active {
-            & .content {
-                & .car-information,
-                & h2,
-                & .description,
-                & .price,
-                & .buy-button {
-                    transform: translateY(0) !important;
-                }
-            }
-        }
+    section .list .item {
+        flex-direction: column;
+    }
+
+    section .list .item .car-img {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 80%;
+        max-width: 280px;
+        margin: 20px auto 0;
+    }
+
+    section .list .item .car-img img {
+        transform: rotate(-15deg) !important;
+    }
+
+    section .list .item .content {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    section .list .item .content h2 {
+        font-size: 2.5rem;
+        margin: 10px 0;
+    }
+
+    section .list .item .content .description {
+        text-align: center;
+        max-width: 90%;
+        font-size: 0.9rem;
+        margin: 10px auto;
+    }
+
+    section .arrows {
+        width: 100%;
+        position: fixed;
+        bottom: 100px;
+        left: 0;
+        z-index: 1001;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    section .arrows button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.9);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section .arrows button img {
+        width: 20px;
+    }
+
+    section .indicators {
+        bottom: 30px;
+        top: auto;
+        height: auto;
     }
 }
