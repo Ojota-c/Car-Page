@@ -348,52 +348,51 @@ section {
         width: 100vw;
         height: 100vh;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         background: transparent;
     }
     section .list .item .car-img {
-        position: relative;
-        width: 70vw;
-        max-width: 320px;
-        min-width: 160px;
+        position: absolute;
+        top: 50%;
         left: 0;
-        top: 0;
-        transform: none;
+        transform: translateY(-50%);
+        width: 60vw;
+        max-width: 220px;
+        min-width: 120px;
         z-index: 2;
-        margin: 0 auto 10px auto;
+        margin: 0;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     section .list .item .car-img img {
         width: 100%;
-        max-width: 320px;
-        min-width: 160px;
-        margin: 0;
+        max-width: 220px;
+        min-width: 120px;
         display: block;
     }
     section .list .item .content {
-        position: relative;
-        right: unset;
-        top: unset;
-        transform: none;
-        width: 80vw;
-        max-width: 340px;
-        min-width: 160px;
+        position: absolute;
+        right: 5vw;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 35vw;
+        max-width: 180px;
+        min-width: 100px;
         height: auto;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-end;
+        text-align: right;
         padding: 0 10px;
         z-index: 3;
         background: none;
         justify-content: center;
     }
     section .list .item .content h2 {
-        font-size: 2.2em;
+        font-size: 1.5em;
         margin: 0;
     }
     section .list .item .content .description {
@@ -401,20 +400,20 @@ section {
         overflow-y: auto;
         font-size: 1em;
         margin: 10px 0;
-        text-align: center;
+        text-align: right;
         line-height: 1.3;
     }
     section .list .item .content .price {
-        font-size: 1.5em;
-        text-align: center;
+        font-size: 1.2em;
+        text-align: right;
         width: 100%;
     }
     section .list .item .content .buy-button {
-        margin: 10px auto 0 auto;
+        margin: 10px 0 0 0;
         display: block;
-        font-size: 1.1em;
-        width: 140px;
-        height: 40px;
+        font-size: 1em;
+        width: 120px;
+        height: 36px;
     }
     section .arrows {
         width: 100vw;
