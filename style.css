@@ -349,9 +349,9 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; /* Começa do topo */
+        justify-content: center; /* Centraliza verticalmente */
         background: transparent;
-        padding-top: 60px; /* Espaço para não colar no topo */
+        padding-top: 0; /* Remove espaço extra do topo */
         box-sizing: border-box;
     }
     
