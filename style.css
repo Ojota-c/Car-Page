@@ -325,13 +325,13 @@ section {
 @media (max-width: 768px) {
     html, body {
         height: 100vh;
-        overflow: hidden;
+        /* Removido overflow: hidden para evitar cortes */
         touch-action: pan-y;
     }
     section {
         height: 100vh;
         min-height: -webkit-fill-available;
-        overflow: hidden;
+        /* Removido overflow: hidden */
         position: relative;
     }
     section .list {
@@ -349,14 +349,14 @@ section {
         justify-content: flex-start;
         background: transparent;
         box-sizing: border-box;
-        padding-top: 90px; /* Aumenta o espaço no topo para descer a imagem */
+        padding-top: 60px; /* Menos espaço no topo para descer a imagem */
         z-index: 1;
     }
     section .list .item .car-img {
         position: static;
         width: 85vw;
         max-width: 320px;
-        margin: 0 auto 20px auto; /* Mais espaço abaixo da imagem */
+        margin: 0 auto 24px auto; /* Mais espaço abaixo da imagem */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -382,12 +382,32 @@ section {
         padding: 0 10px;
         margin-top: 10px;
     }
+    section .list .item .content h2 {
+        font-size: 2rem;
+        margin: 20px 0 0 0;
+    }
+    section .list .item .content .description {
+        font-size: 1rem;
+        margin: 10px 0;
+        line-height: 1.4;
+        max-height: 6em;
+        overflow-y: auto;
+    }
+    section .list .item .content .buy-button {
+        margin: 15px 0 0 0;
+        font-size: 1.1rem;
+        width: 140px;
+        height: 42px;
+        z-index: 4;
+        position: relative;
+        pointer-events: auto;
+    }
     /* Arrows fixas no rodapé, uma em cada lado */
     section .arrows {
         position: fixed;
         width: 100vw;
         left: 0;
-        bottom: 80px;
+        bottom: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -415,7 +435,7 @@ section {
     section .indicators {
         position: fixed;
         left: 0;
-        bottom: 20px;
+        bottom: 90px;
         width: 100vw;
         display: flex;
         flex-direction: column;
