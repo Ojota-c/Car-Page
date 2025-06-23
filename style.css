@@ -352,13 +352,30 @@ section {
         width: 100vw;
         min-height: 70vh;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    section .list .item {
+        position: static;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     section .list .item .car-img {
+        position: static;
         width: 90vw;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        top: 45%;
+        margin: 0 auto 10px auto;
+        left: unset;
+        top: unset;
+        transform: none;
+        z-index: 2;
     }
 
     section .list .item .car-img img {
@@ -369,11 +386,14 @@ section {
     }
 
     section .list .item .content {
-        right: 0;
+        position: static;
+        right: unset;
         width: 100vw;
         align-items: center;
         text-align: center;
         padding: 0 10px;
+        z-index: 3;
+        background: none;
     }
 
     section .list .item .content h2 {
@@ -396,6 +416,9 @@ section {
         max-width: 180px;
         font-size: 1em;
         height: 40px;
+        pointer-events: auto;
+        z-index: 5;
+        position: relative;
     }
 
     section .arrows {
@@ -405,9 +428,14 @@ section {
         top: unset;
         transform: translate(-50%, 0);
         position: fixed;
-        z-index: 20;
+        z-index: 100;
         justify-content: space-between;
         pointer-events: auto;
+    }
+
+    section .arrows button {
+        pointer-events: auto;
+        z-index: 101;
     }
 
     section .indicators {
@@ -417,7 +445,7 @@ section {
         top: unset;
         transform: translateX(-50%);
         position: fixed;
-        z-index: 20;
+        z-index: 100;
         flex-direction: column;
         align-items: center;
         gap: 10px;
