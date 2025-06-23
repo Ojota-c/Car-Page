@@ -332,8 +332,8 @@ section {
     header {
         position: fixed;
         top: 0;
-        width: 100%;
-        padding: 15px 5%;
+        width: 100vw;
+        padding: 15px 0;
         background: rgba(0,0,0,0.8);
         z-index: 1000;
         display: flex;
@@ -341,7 +341,7 @@ section {
     }
 
     header img {
-        width: 150px;
+        width: 130px;
         height: auto;
     }
 
@@ -350,69 +350,113 @@ section {
     }
 
     section {
-        padding-top: 80px;
+        padding-top: 70px;
         height: 100vh;
+        min-height: 100vh;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
     }
 
     section .list {
         width: 100vw;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 70px);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     section .list .item {
+        position: absolute;
+        inset: 0;
+        width: 100vw;
+        height: 100%;
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: transparent;
+        z-index: 1;
+        padding-top: 10px;
     }
 
     section .list .item .car-img {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 80%;
-        max-width: 280px;
-        margin: 20px auto 0;
+        position: static;
+        width: 80vw;
+        max-width: 240px;
+        margin: 30px auto 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
     }
 
     section .list .item .car-img img {
-        transform: rotate(-15deg) !important;
+        width: 100%;
+        max-width: 240px;
+        display: block;
+        transform: rotate(-15deg);
     }
 
     section .list .item .content {
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        width: 90%;
+        position: static;
+        width: 92vw;
+        max-width: 320px;
         margin: 0 auto;
-        padding: 20px 0;
+        padding: 10px 0 0 0;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         text-align: center;
+        z-index: 3;
     }
 
     section .list .item .content h2 {
-        font-size: 2.5rem;
-        margin: 10px 0;
+        font-size: 2rem;
+        margin: 18px 0 0 0;
     }
 
     section .list .item .content .description {
         text-align: center;
-        max-width: 90%;
-        font-size: 0.9rem;
+        max-width: 95%;
+        font-size: 1rem;
         margin: 10px auto;
+        line-height: 1.4;
+        max-height: 6em;
+        overflow-y: auto;
+    }
+
+    section .list .item .content .price {
+        font-size: 1.3rem;
+        margin: 10px 0 0 0;
+    }
+
+    section .list .item .content .buy-button {
+        margin: 15px 0 0 0;
+        font-size: 1.1rem;
+        width: 140px;
+        height: 42px;
+        z-index: 4;
+        position: relative;
+        pointer-events: auto;
     }
 
     section .arrows {
-        width: 100%;
+        width: 100vw;
         position: fixed;
-        bottom: 100px;
         left: 0;
+        bottom: 60px;
         z-index: 1001;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 0 20px;
+        pointer-events: none;
     }
 
     section .arrows button {
+        pointer-events: auto;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -428,8 +472,33 @@ section {
     }
 
     section .indicators {
-        bottom: 30px;
-        top: auto;
-        height: auto;
+        position: fixed;
+        left: 0;
+        bottom: 20px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1001;
+        pointer-events: none;
+    }
+
+    section .indicators ul {
+        display: flex;
+        gap: 10px;
+        pointer-events: auto;
+    }
+
+    section .indicators ul li {
+        width: 35px;
+        height: 4px;
+        background-color: rgba(190, 255, 27, 0.6);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    section .indicators ul .active {
+        background-color: white;
+        transform: scaleY(1.5);
     }
 }
