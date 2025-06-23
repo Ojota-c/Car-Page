@@ -449,5 +449,22 @@ section {
     section .indicators .number {
         font-size: 1.2em;
     }
+
+    section .list .item .content {
+        z-index: 200;
+    }
+    section .list .item .content .buy-button {
+        z-index: 201;
+        position: relative;
+    }
+    section .arrows,
+    section .indicators {
+        z-index: 100;
+        pointer-events: none; /* Não bloqueia clique embaixo */
+    }
+    section .arrows button,
+    section .indicators * {
+        pointer-events: auto; /* Só os botões das arrows e os indicadores recebem clique */
+    }
 }
 
